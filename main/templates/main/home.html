@@ -2,138 +2,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hillel's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hillel's Portfolio</title>
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-    <style>
-        /* Animated brand title */
-        .fancy-brand {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            background-size: 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 2s infinite linear;
-            position: relative;
-        }
+  <style>
+    /* Animated brand title */
+    .fancy-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineText 2s infinite linear;
+      position: relative;
+    }
 
-        @keyframes shineText {
-            0% {
-                background-position: 0% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
-        }
+    @keyframes shineText {
+      0% {
+        background-position: 0% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            color: #fff;
-            position: relative;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      color: #fff;
+      position: relative;
+    }
 
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.6);
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            padding: 60px;
-            text-align: center;
-        }
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
 
-        .content h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease-in-out;
-        }
+    .content h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-in-out;
+    }
 
-        .content p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 2s ease-in-out;
-        }
+    .content p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-        .custom-btn {
-            font-weight: bold;
-            transition: all 0.3s ease-in-out;
-        }
+    .custom-btn {
+      font-weight: 700;
+      transition: all 0.3s ease-in-out;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
 
-        .custom-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
-        }
+    .custom-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
+    }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .btn-description {
+      margin-top: 0.75rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1.5px solid #fff;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    .btn-description:hover {
+      background-color: #fff;
+      color: #0072ff;
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.5);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Navbar extra button */
+    .navbar-description-btn {
+      font-weight: 700;
+      border-radius: 0.5rem;
+      border: 2px solid #00c6ff;
+      color: #00c6ff;
+      background: transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-left: 1rem;
+      padding: 0.375rem 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .navbar-description-btn:hover {
+      background-color: #00c6ff;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0, 198, 255, 0.6);
+    }
+
+    /* Navbar container */
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 
-    <nav class="navbar navbar-dark bg-dark px-3 z-3 position-relative">
+  <nav class="navbar navbar-dark bg-dark px-3 z-3 position-relative">
+    <div class="navbar-container">
+      <div class="navbar-left">
         <span class="navbar-brand fancy-brand">Hillel's Portfolio</span>
-        <div>
-            <a class="btn btn-outline-light me-2" href="https://github.com/hilel941343?tab=repositories" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a class="btn btn-outline-light" href="https://www.linkedin.com/in/hillel-touitou-976786253/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </div>
-    </nav>
-
-    <div class="container mt-5 text-center content">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Crafted with passion and purpose. Explore my work, skills, and projects.</p>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4 mb-4">
-                <a href="https://project-e9l6.onrender.com/" target="_blank" class="btn btn-lg btn-primary w-100 custom-btn">Project 1</a>
-            </div>
-            <div class="col-md-4 mb-4">
-                <a href="https://expense-app-8ar1.onrender.com/" target="_blank" class="btn btn-lg btn-success w-100 custom-btn">Expense App</a>
-            </div>
-        </div>
+        <a href="https://github.com/hilel941343/Portfolio/edit/main/README.md" target="_blank" rel="noopener noreferrer" class="navbar-description-btn">
+          Description of My Portfolio
+        </a>
+      </div>
+      <div>
+        <a class="btn btn-outline-light me-2" href="https://github.com/hilel941343?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a class="btn btn-outline-light" href="https://www.linkedin.com/in/hillel-touitou-976786253/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
     </div>
+  </nav>
+
+  <div class="container mt-5 text-center content">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Crafted with passion and purpose. Explore my work, skills, and projects.</p>
+
+    <div class="row justify-content-center mt-4 gx-4 gy-3">
+      <div class="col-md-4">
+        <a href="https://project-e9l6.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-primary w-100 custom-btn">
+          Project 1
+        </a>
+        <a href="https://github.com/hilel941343/Project/edit/main/README.md" target="_blank" rel="noopener noreferrer" class="btn btn-description w-100">
+          Description
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="https://expense-app-8ar1.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-success w-100 custom-btn">
+          Expense App
+        </a>
+        <a href="https://github.com/hilel941343/expense_app/edit/main/README.md" target="_blank" rel="noopener noreferrer" class="btn btn-description w-100">
+          Description
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
