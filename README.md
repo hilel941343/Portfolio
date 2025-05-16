@@ -17,7 +17,7 @@ I developed a responsive and modern personal portfolio website using **Django** 
 
 **Technologies Used:**
 
-* **Backend**: Django (Python)
+* **Backend**: Django (Python),Javascript
 * **Database**: SQLite3
 * **Frontend**: HTML, CSS
 * **Design & Layout**: CSS 
