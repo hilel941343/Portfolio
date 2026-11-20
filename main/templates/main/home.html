@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
   <style>
-    /* Animated brand title */
     .fancy-brand {
       font-size: 1.8rem;
       font-weight: 700;
@@ -20,16 +20,11 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shineText 2s infinite linear;
-      position: relative;
     }
 
     @keyframes shineText {
-      0% {
-        background-position: 0% center;
-      }
-      100% {
-        background-position: 200% center;
-      }
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
 
     body {
@@ -39,17 +34,18 @@
       background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       background-repeat: no-repeat;
-      height: 100vh;
+      min-height: 100vh;
       color: #fff;
       position: relative;
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.72);
       width: 100%;
-      height: 100vh;
-      position: absolute;
+      min-height: 100%;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: 1;
@@ -58,7 +54,7 @@
     .content {
       position: relative;
       z-index: 2;
-      padding: 60px 20px 40px;
+      padding: 55px 20px 60px;
       text-align: center;
     }
 
@@ -68,81 +64,30 @@
       animation: fadeInDown 1s ease-in-out;
     }
 
-    .content p {
+    .content > p {
       font-size: 1.2em;
       max-width: 800px;
-      margin: 0 auto 40px;
-      animation: fadeIn 2s ease-in-out;
+      margin: 0 auto 35px;
     }
 
-    .custom-btn {
-      font-weight: 700;
-      transition: all 0.3s ease-in-out;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .custom-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
-    }
-
-    .btn-description {
-      margin-top: 0.75rem;
-      font-weight: 600;
-      border-radius: 0.5rem;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      border: 1.5px solid #fff;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn-description:hover {
-      background-color: #fff;
-      color: #0072ff;
-      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.5);
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Navbar extra button */
     .navbar-description-btn {
       font-weight: 700;
       border-radius: 0.5rem;
       border: 2px solid #00c6ff;
       color: #00c6ff;
       background: transparent;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
       margin-left: 1rem;
       padding: 0.375rem 0.9rem;
       font-size: 0.95rem;
+      text-decoration: none;
     }
 
     .navbar-description-btn:hover {
       background-color: #00c6ff;
       color: #fff;
-      box-shadow: 0 4px 20px rgba(0, 198, 255, 0.6);
     }
 
-    /* Navbar container */
     .navbar-container {
       display: flex;
       align-items: center;
@@ -155,54 +100,263 @@
       align-items: center;
       gap: 1rem;
     }
+
+    .project-card {
+      height: 100%;
+      min-height: 290px;
+      padding: 28px 22px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.16);
+    }
+
+    .project-icon {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      color: #00c6ff;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .project-card p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .tech-stack {
+      color: #8be4ff;
+      font-size: 0.83rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .project-actions a {
+      flex: 1;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .live-btn {
+      background: #007bff;
+      color: #fff;
+      border: 1px solid #007bff;
+    }
+
+    .live-btn:hover {
+      background: #0056b3;
+      color: #fff;
+    }
+
+    .github-btn {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .github-btn:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    .section-heading {
+      margin: 45px 0 25px;
+      font-weight: 700;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 576px) {
+      .content h1 { font-size: 2.1rem; }
+      .navbar-left { gap: 5px; }
+      .fancy-brand { font-size: 1.15rem; }
+      .navbar-description-btn {
+        font-size: 0.7rem;
+        margin-left: 0;
+        padding: 5px;
+      }
+      .project-actions a { font-size: 0.8rem; }
+    }
   </style>
 </head>
 
 <body>
   <div class="overlay"></div>
 
-  <nav class="navbar navbar-dark bg-dark px-3 z-3 position-relative">
+  <nav class="navbar navbar-dark bg-dark px-3 position-relative" style="z-index: 3;">
     <div class="navbar-container">
       <div class="navbar-left">
         <span class="navbar-brand fancy-brand">Hillel's Portfolio</span>
-        <a href="https://github.com/hilel941343/Portfolio/" target="_blank" rel="noopener noreferrer" class="navbar-description-btn">
-          Description of My Portfolio
+        <a href="https://github.com/hilel941343/Portfolio/"
+           target="_blank" rel="noopener noreferrer"
+           class="navbar-description-btn">
+          Portfolio GitHub
         </a>
       </div>
+
       <div>
-        <a class="btn btn-outline-light me-2" href="https://github.com/hilel941343?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a class="btn btn-outline-light me-2"
+           href="https://github.com/hilel941343?tab=repositories"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a class="btn btn-outline-light" href="https://www.linkedin.com/in/hillel-touitou-976786253/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+
+        <a class="btn btn-outline-light"
+           href="https://www.linkedin.com/in/hillel-touitou-976786253/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-5 text-center content">
+  <main class="container content">
     <h1>Welcome to My Portfolio</h1>
-    <p>Crafted with passion and purpose. Explore my work, skills, and projects.</p>
+    <p>
+      Crafted with passion and purpose. Explore my work, technical skills,
+      and software development projects.
+    </p>
 
-    <div class="row justify-content-center mt-4 gx-4 gy-3">
-      <div class="col-md-4">
-        <a href="https://project-e9l6.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-primary w-100 custom-btn">
-          Project 1
-        </a>
-        <a href="https://github.com/hilel941343/Project/" target="_blank" rel="noopener noreferrer" class="btn btn-description w-100">
-          Description
-        </a>
+    <h2 class="section-heading">Featured Projects</h2>
+
+    <div class="row justify-content-center gx-4 gy-4">
+
+      <!-- Israel Job Hub -->
+      <div class="col-md-6 col-lg-5">
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Israel Job Hub</h3>
+          <p>
+            A job platform designed to simplify job discovery and connect
+            job seekers with employment opportunities.
+          </p>
+          <div class="tech-stack">Web Application · Job Platform</div>
+          <div class="project-actions">
+            <a href="https://jobs-israel-two.vercel.app/"
+               target="_blank" rel="noopener noreferrer"
+               class="live-btn">
+              <i class="fas fa-external-link-alt"></i> Live Website
+            </a>
+            <a href="https://github.com/hilel941343/jobs-israel"
+               target="_blank" rel="noopener noreferrer"
+               class="github-btn">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-4">
-        <a href="https://expense-app-8ar1.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-success w-100 custom-btn">
-          Expense App
-        </a>
-        <a href="https://github.com/hilel941343/expense_app/" target="_blank" rel="noopener noreferrer" class="btn btn-description w-100">
-          Description
-        </a>
+      <!-- ElectricAI -->
+      <div class="col-md-6 col-lg-5">
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>ElectricAI</h3>
+          <p>
+            An AI-powered management platform for electricians, featuring
+            customer and job management, voice recordings, and AI-assisted
+            voice transcription and workflow tools.
+          </p>
+          <div class="tech-stack">React · Django · AI · Python</div>
+          <div class="project-actions">
+            <a href="https://electricai-m3ul.onrender.com"
+               target="_blank" rel="noopener noreferrer"
+               class="live-btn">
+              <i class="fas fa-external-link-alt"></i> Live Website
+            </a>
+            <a href="https://github.com/hilel941343/ElectricAI"
+               target="_blank" rel="noopener noreferrer"
+               class="github-btn">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
+
+      <!-- Existing Project 1 -->
+      <div class="col-md-6 col-lg-5">
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Project 1</h3>
+          <p>Explore my first web development project.</p>
+          <div class="tech-stack">Web Development</div>
+          <div class="project-actions">
+            <a href="https://project-e9l6.onrender.com/"
+               target="_blank" rel="noopener noreferrer"
+               class="live-btn">
+              <i class="fas fa-external-link-alt"></i> Live Website
+            </a>
+            <a href="https://github.com/hilel941343/Project/"
+               target="_blank" rel="noopener noreferrer"
+               class="github-btn">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Existing Expense App -->
+      <div class="col-md-6 col-lg-5">
+        <div class="project-card">
+          <div class="project-icon">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <h3>Expense App</h3>
+          <p>A web application for managing and tracking expenses.</p>
+          <div class="tech-stack">Web Application</div>
+          <div class="project-actions">
+            <a href="https://expense-app-8ar1.onrender.com/"
+               target="_blank" rel="noopener noreferrer"
+               class="live-btn">
+              <i class="fas fa-external-link-alt"></i> Live Website
+            </a>
+            <a href="https://github.com/hilel941343/expense_app/"
+               target="_blank" rel="noopener noreferrer"
+               class="github-btn">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </main>
 </body>
 </html>
